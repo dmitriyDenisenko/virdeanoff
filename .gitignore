@@ -1,4 +1,5 @@
 ### Development ###
+**/node_modules
 *-dev.yml
 .config/
 
