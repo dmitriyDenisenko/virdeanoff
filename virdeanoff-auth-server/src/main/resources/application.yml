@@ -1,3 +1,36 @@
 spring:
-  profiles:
-    active: "dev"
+  application:
+    name: virdeanoff-auth-server
+  mvc:
+    log-request-details: true
+    log-resolved-exception: true
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          test-client:
+            registration:
+              client-id: "test"
+              client-authentication-methods:
+                - "none"
+              redirect-uris:
+                - "http://127.0.0.1:8787"
+                - "http://localhost:8989"
+                - "http://localhost:3000/authorized"
+                - "http://localhost:3000"
+              authorization-grant-types:
+                - "authorization_code"
+              scopes:
+                - openid
+            require-proof-key: true
+            require-authorization-consent: false
+        issuer: "http://localhost:9191"
+debug: true
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+        security: TRACE
+server:
+  port: 9191
