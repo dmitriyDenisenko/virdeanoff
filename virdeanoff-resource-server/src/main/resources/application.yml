@@ -1,3 +1,20 @@
 spring:
-  profiles:
-    active: "dev"
+  application:
+    name: virdeanoff-resource-server
+  mvc:
+    log-request-details: true
+    log-resolved-exception: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:9191/oauth2/jwks"
+          issuer-uri: "http://localhost:9191"
+debug: true
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+server:
+  port: 8787
